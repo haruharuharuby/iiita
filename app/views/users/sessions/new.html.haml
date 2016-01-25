@@ -1,0 +1,20 @@
+.container
+  %h1 iiita
+  .row
+    .col-md-10.col-md-offset-1.col-sm-10.col-sm-offset-1.col-xs-10.col-xs-offset-1
+      %h1 ログイン
+      .row
+        .col-sm-6
+          = render "sns_login_form"
+          %p.register-if-no-account
+            もしiiitaにアカウントを持ってない場合は
+            = link_to "新規登録", "#"
+            から
+        .col-sm-6
+          .msg
+            - flash.each do |name, msg|
+              .alert.alert-danger
+                %a.close{ data:{dismiss:"alert"}} x
+                = msg
+          .authentication-form
+            = render "manual_login_form"

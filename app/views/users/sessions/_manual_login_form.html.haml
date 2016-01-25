@@ -1,0 +1,10 @@
+= form_for(:user, url: user_session_path) do |f|
+  = f.text_field :email, class:"form-control landing-form-mailaddress", placeholder:"メールアドレス"
+  .row
+    .col-sm-9
+      = f.password_field :password, class:"form-control", placeholder:"パスワード"
+    .col-sm-3
+      = f.submit "ログイン", class: "btn btn-block btn-primary"
+  %p.forgot-password
+    %small
+      = link_to "パスワードを忘れた場合", new_user_password_path, class:"forgot-password-link"

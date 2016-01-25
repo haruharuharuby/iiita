@@ -1,0 +1,35 @@
+.landing-header
+  .container
+    .row
+      .col-sm-7
+        .landing-header-logo
+          iiita-logo
+        .landing-header-catch-copy
+          %h1.landing-header-catch-copy-text
+            iiitaはプログラマのための
+            %br
+            情報共有サービスです。
+      .col-sm-5
+        .authentication-form
+          .landing-login-form
+            = render "users/sessions/manual_login_form"
+            .login-with-sns
+              = render "users/sessions/sns_login_form"
+              %p
+                %small iiitaが許可なくtwitterに投稿することはありません。
+              %p
+                または
+                %span.sign-up-toggle-link.btn.btn-link メールアドレスで登録
+                する。
+
+          .landing-signup-form
+            = form_for(:user, url: user_registration_path, html:{ class:"landing-signup-form" }) do |f|
+              = f.text_field :name, class:"form-control landing-form-username", placeholder:"ユーザ名"
+              = f.text_field :email, class:"form-control landing-form-mailaddress", placeholder:"メールアドレス"
+              = f.password_field :password, class:"form-control", placeholder:"パスワード"
+              .agreement-eula
+                %small 利用規約に同意のうえ、「利用規約に同意して登録」ボタンを押してください。
+              .form-group
+                .text-right
+                  .cancel-new-user-link.btn.btn-link キャンセル
+                  = f.submit "利用規約に同意して登録", class: "btn btn-primary"

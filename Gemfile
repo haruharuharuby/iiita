@@ -26,6 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'devise'
+gem 'devise-bootstrap-views'
+gem 'devise-i18n'
 gem 'gravtastic'
 
 # Use ActiveModel has_secure_password
@@ -53,3 +55,5 @@ group :development do
   gem 'hirb-unicode'
 
 end
+
+gem 'rails_12factor', group: :production
