@@ -8,13 +8,13 @@
           = render "sns_login_form"
           %p.register-if-no-account
             もしiiitaにアカウントを持ってない場合は
-            = link_to "新規登録", "#"
+            = link_to "新規登録", new_user_registration_path
             から
         .col-sm-6
           .msg
             - flash.each do |name, msg|
               .alert.alert-danger
-                %a.close{ data:{dismiss:"alert"}} x
+                %a.close{ data:{ dismiss:"alert"} } x
                 = msg
           .authentication-form
             = render "manual_login_form"

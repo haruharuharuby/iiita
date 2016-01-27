@@ -1,15 +1,38 @@
 ja:
+  errors:
+    messages:
+      not_saved:
+        one: "1件の誤りがあります。"
+        other: "%{count} 件のエラーがあります。"
   activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "必ず入力してください。"
+              too_short: "8文字以上です。"
+              too_long: "16文字以内です。"
+            email:
+              taken: "既に登録されています。"
+              invalid: "正しくありません。"
+              too_short: "8文字以上です。"
+              too_long: "32文字以内です。"
+            password:
+              blank: "必ず入力してください。"
+              too_short: "8文字以上です。"
+              too_long: "32文字以内です。"
     attributes:
       user:
         current_password: "現在のパスワード"
+        name: "名前"
         email: "メールアドレス"
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
     models:
       user: "ユーザ"
-  devise:
+  users:
     confirmations:
       new:
         resend_confirmation_instructions: "アカウント確認メール再送"
@@ -49,7 +72,8 @@ ja:
         update: "更新"
         we_need_your_current_password_to_confirm_your_changes: "変更を反映するには現在のパスワードを入力してください"
       new:
-        sign_up: "アカウント登録"
+        sign_up: "サインアップ"
+        register: "利用規約に同意して登録"
     sessions:
       new:
         sign_in: "ログイン"

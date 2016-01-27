@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
   root 'landings#show', as: "non_authenticated_root"
 
-  devise_for :user, :controllers => { registrations: 'registrations', sessions: 'users/sessions'}
+  devise_for :user, :controllers => { registrations: 'users/registrations', sessions: 'users/sessions', passwords: 'users/passwords'}
   resources :articles
 
 end

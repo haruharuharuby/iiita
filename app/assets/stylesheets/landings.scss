@@ -1,12 +1,10 @@
 // Place all the styles related to the Landings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$key-color: #5FB404;
+$key-border-color: #7fDF00;
+
 .landing-header{
-  padding-top: 80px;
-  .landing-header-logo{
-    width: 120px;
-    height: 51px;
-  }
   .landing-header-catch-copy{
     margin: 100px 0;
     .landing-header-catch-copy-text{
@@ -18,21 +16,18 @@
     input[type=text]{
       margin-bottom: 10px;
     }
+    .btn-primary{
+      background-color: $key-color;
+      border-color: $key-border-color;
+    }
     .landing-login-form{
-      .mailaddress-login-form{
-        margin-bottom: 50px;
-      }
       .sign-up-toggle-link{
         padding: 0;
       }
       .forgot-password{
         padding: 5px 0;
       }
-      .login-with-github-button{
-        margin-bottom: 5px;
-      }
     }
-
     .landing-signup-form{
       .agreement-eula{
         margin-bottom: 10px;

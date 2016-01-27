@@ -1,0 +1,41 @@
+$key-color: #5FB404;
+$key-border-color: #7fDF00;
+
+@mixin sight-color{
+  color: white;
+  background-color: $key-color;
+  border-color: $key-border-color;
+}
+
+.header{
+  margin-top: 80px;
+}
+
+.iiita-logo{
+  width: 120px;
+  height: 51px;
+  background-color: $key-color;
+  display: table-cell;
+  vertical-align: middle;
+  color: white;
+}
+
+.login-with-github-button{
+ margin-bottom: 5px;
+ background-color: #585858;
+ color: white;
+}
+
+.login-with-twitter-button{
+ margin-bottom: 5px;
+ background-color: #2E9AFE;
+ color: white;
+}
+
+.panel-default > .panel-heading {
+  @include sight-color;
+}
+
+.btn-primary {
+  @include sight-color;
+}

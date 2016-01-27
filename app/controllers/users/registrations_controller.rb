@@ -1,5 +1,6 @@
-class RegistrationsController < Devise::RegistrationsController
+class Users::RegistrationsController < Devise::RegistrationsController
   before_action :sign_up_params, only:[:sign_up]
+
   def create
     super
   end
