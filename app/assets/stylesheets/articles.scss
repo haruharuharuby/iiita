@@ -1,3 +1,62 @@
 // Place all the styles related to the articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$key-color: #5FB404;
+$key-border-color: #7fDF00;
+$base-border-color: #A4A4A4;
+
+// for common-header
+.article-iiita-logo{
+  color: $key-color;
+  font-family: 'Raleway', sans-serif;
+  font-size: 225%;
+}
+
+.article-search-dropdown-items
+{
+  position: absolute;
+  width: 350px;
+  border: 1px solid $base-border-color;
+  padding: 10px;
+  z-index: 100;
+  background-color: white;
+  .search-user-text{
+    margin-bottom: 10px;
+  }
+  input{
+    border: 1px solid $base-border-color;
+    border-radius: 3px;
+    width: 100%;
+  }
+}
+.article-post-menu, .article-stocks, .notification, .avatar{
+  margin-top: 8px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.article-stocks{
+  padding-top: 8px;
+}
+.avatar{
+  margin-left: 5px;
+}
+.avatar-surface img{
+  border-radius: 5px;
+}
+
+.btn-notification{
+  background-color: orange;
+  color: white;
+}
+
+// for feed, posts, my-posts, stocks
+.feed-container{
+  margin-top: 50px;
+  .my-post-count{
+    padding: 3px;
+    border-radius: 3px;
+    background-color: orange;
+    color: white;
+  }
+}

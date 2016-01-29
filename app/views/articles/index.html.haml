@@ -1,29 +1,34 @@
-%h1 Listing articles
-= link_to "sign_out", destroy_user_session_path, method: :delete
-%table
-  %thead
-    %tr
-      %th Title
-      %th Body
-      %th User
-      %th Publication
-      %th Draft
-      %th
-      %th
-      %th
+= render "common_header"
 
-  %tbody
-    - @articles.each do |article|
-      %tr
-        %td= article.title
-        %td= article.body
-        %td= article.user_id
-        %td= article.publication
-        %td= article.draft
-        %td= link_to 'Show', article
-        %td= link_to 'Edit', edit_article_path(article)
-        %td= link_to 'Destroy', article, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
-
-= link_to 'New Article', new_article_path
+.container
+  %h3 プログラミング知識を共有しよう。
+  .row
+    .col-xs-12
+      = link_to "ノウハウ Tipsを投稿する", new_article_path, class: "btn btn-primary"
+      %nav.feed-container
+        %ul.nav.nav-tabs
+          %li.active
+            %a フィード
+          %li
+            %a 全ての投稿
+          %li.pull-right
+            %a ストック
+          %li.pull-right
+            = link_to "#" do
+              自分の投稿
+              %span.my-post-count 0
+      .content-body
+        - if @articles.any?
+          - @articles.each do |article|
+            %tr
+              %td= article.title
+              %td= article.body
+              %td= article.user_id
+              %td= article.publication
+              %td= article.draft
+              %td= link_to 'Show', article
+              %td= link_to 'Edit', edit_article_path(article)
+              %td= link_to 'Destroy', article, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        -else
+          %h4 投稿はありません。

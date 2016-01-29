@@ -1,0 +1,14 @@
+= form_for(:article, url:"/search", html: { class: "navbar-form navbar-left"}) do |f|
+  .input-group
+    = f.text_field :title, placeholder:"キーワードを入力", class: "form-control article-search-text"
+    .input-group-btn
+      %a.btn.btn-default.article-search-dropdown{href:"#"}
+        %span.caret
+  = f.submit "検索", class: "btn btn-default article-search-button"
+  .article-search-dropdown-items
+    .smart-search-user
+      ユーザーを指定
+      = text_field_tag "user-search", "", placeholder:"ユーザーを指定", class:"search-user-text"
+    .smart-search-tag
+      タグを指定
+      = text_field_tag "tag-search", "", placeholder:"タグを指定", class:"search-tag-text"

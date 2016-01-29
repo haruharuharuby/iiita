@@ -1,0 +1,40 @@
+%nav.common-header.navbar.navbar-default
+  .container
+    .navbar-header
+      %button.navbar-toggle.collapsed{ data: {toggle:"collapse", target:"#collapsing-navbar-items-1"}}
+        %span.sr-only Toggle Navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand{href:"#"}
+        %span.article-iiita-logo iiita
+    .navbar-left
+      .collapse.navbar-collapse#collapsing-navbar-items-1.navbar-left
+        = render "search"
+    .navbar-right
+      .article-post-menu.pull-left
+        .dropdown
+          .btn-group
+            = link_to new_article_path, class:"btn btn-primary" do
+              %span.glyphicon.glyphicon-edit 投稿する
+            %a.dropdown-toggle.btn.btn-primary{data:{toggle:"dropdown", target:"#"}}
+              %span.caret
+            %ul.dropdown-menu
+              %li
+                = link_to "下書き", "#"
+              %li
+                = link_to "編集リクエスト", "#"
+
+      .article-stocks.pull-left
+        = link_to "ストック一覧", "user/stocks"
+      .notification.pull-left
+        .btn-group
+          = link_to "#", class:"btn btn-notification" do
+            %span 0
+      .avatar.pull-left
+        .avatar-surface
+          = link_to_if user_signed_in?, image_tag(current_user.gravatar_url, size:"34x34"), "#", class:"dropdown", data:{toggle:"dropdown"}
+          %ul.dropdown-menu.user-menu-dropdown
+            %li not implement
+            %li
+              = link_to "ログアウト", destroy_user_session_path, method: :delete
