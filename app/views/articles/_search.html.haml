@@ -1,6 +1,6 @@
 = form_for(:article, url:"/search", html: { class: "navbar-form navbar-left"}) do |f|
   .input-group
-    = f.text_field :title, placeholder:"キーワードを入力", class: "form-control article-search-text"
+    = f.text_field :word_of_seeking, placeholder:"キーワードを入力", class: "form-control article-search-text"
     .input-group-btn
       %a.btn.btn-default.article-search-dropdown{href:"#"}
         %span.caret

@@ -22,6 +22,17 @@ ja:
               blank: "必ず入力してください。"
               too_short: "8文字以上です。"
               too_long: "32文字以内です。"
+        article:
+          attributes:
+            title:
+              blank: "必ず入力してください。"
+              too_short: "10文字以上です。"
+              too_long: "256文字以内です。"
+            body:
+              blank: "必ず入力してください。"
+              too_short: "10文字以上です。"
+              too_long: "8000文字以内です。"
+
     attributes:
       user:
         current_password: "現在のパスワード"
@@ -30,6 +41,9 @@ ja:
         password: "パスワード"
         password_confirmation: "確認用パスワード"
         remember_me: "ログインを記憶"
+      article:
+        title: "タイトル"
+        body: "内容"
     models:
       user: "ユーザ"
   users:

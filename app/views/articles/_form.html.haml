@@ -1,22 +1,27 @@
-= form_for @article do |f|
-  - if @article.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@article.errors.count, "error")} prohibited this article from being saved:"
-      %ul
-        - @article.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :body
-    = f.text_field :body
-  .field
-    = f.label :user_id
-    = f.text_field :user_id
-  .field
-    = f.label :publication
-    = f.check_box :publication
-  .actions
-    = f.submit 'Save'
+= form_for @article, html: {class: "article-edit-form"} do |f|
+  .container
+    - if @article.errors.any?
+      .alert.alert-danger
+        %a.close{ data:{ dismiss:"alert"} } x
+        -# %h2= "#{pluralize(@article.errors.count, "error")} prohibited this article from being saved:"
+        %ul.list-unstyled
+          - @article.errors.full_messages.each do |msg|
+            %li= msg
+    .editor-field
+      .field
+        = f.text_field :title, placeholder:"タイトル", class: "form-control"
+      .field
+        = f.text_field :tag_list, placeholder:"タグ カンマで区切って入力", class: "form-control", data:{ role:"tagsinput" }
+      .field.row
+        .col-xs-6
+          = f.text_area :body, placeholder:"Markdownで入力", class:"form-control article-edit-text", rows:20
+        .col-xs-6
+          .panel.panel-default
+            .panel-heading
+              プレビュー
+            .panel-body.article-preview-panel
+              プレビュー
+      .field
+        = f.hidden_field :publication
+    .editor-submit-field.pull-right
+      = f.submit '投稿', class: "btn btn-primary"

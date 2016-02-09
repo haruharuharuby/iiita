@@ -1,21 +1,12 @@
-%p#notice= notice
+= render "application/alert"
 
-%p
-  %b Title:
-  = @article.title
-%p
-  %b Body:
-  = @article.body
-%p
-  %b User:
-  = @article.user_id
-%p
-  %b Publication:
-  = @article.publication
-%p
-  %b Draft:
-  = @article.draft
+.container
+  .col-xs-12
+    .panel.panel-default
+      .panel-heading
+        プレビュー
+      .panel-body.article-preview-panel
+        = @article.body
 
 = link_to 'Edit', edit_article_path(@article)
-\|
 = link_to 'Back', articles_path

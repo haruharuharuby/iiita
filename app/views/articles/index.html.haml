@@ -1,7 +1,5 @@
-= render "common_header"
-
-
 .container
+  = render "alert"
   %h3 プログラミング知識を共有しよう。
   .row
     .col-xs-12
@@ -19,16 +17,12 @@
               自分の投稿
               %span.my-post-count 0
       .content-body
+        = page_entries_info @articles
+
         - if @articles.any?
-          - @articles.each do |article|
-            %tr
-              %td= article.title
-              %td= article.body
-              %td= article.user_id
-              %td= article.publication
-              %td= article.draft
-              %td= link_to 'Show', article
-              %td= link_to 'Edit', edit_article_path(article)
-              %td= link_to 'Destroy', article, :method => :delete, :data => { :confirm => 'Are you sure?' }
+          %ul.nav.nav-stacked
+            = content_tag_for :li, @articles do |article|
+              %h3= link_to article.title, article
         -else
           %h4 投稿はありません。
+        = paginate @articles

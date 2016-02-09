@@ -2,9 +2,25 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $ ->
-  $(".article-search-button").hide()
-  $(".article-search-dropdown-items").hide()
-  $(".article-search-text").on "focusin", ->
+  markdownPreview = ->
+    preview = $(".article-preview-panel")
+    if preview
+      text = $(".article-edit-text").val()
+
+      # text()を取得すると空白10個がついてくる。（原因は不明。応急処置的に空白10個を取り除く。)
+      text = $(".article-preview-panel").text().replace(/          /g,"") if !text
+      preview.html(marked(text))
+      preview.find("pre code").each (i, block) ->
+        hljs.highlightBlock(block, block.className)
+
+  markdownPreview()
+
+  $(".article-search-text").on "focusin", (e) ->
+    e.preventDefault()
     $(".article-search-button").animate(width: "show")
-  $(".article-search-dropdown").on "click", ->
+  $(".article-search-dropdown").on "click", (e) ->
+    e.preventDefault()
     $(".article-search-dropdown-items").toggle()
+  $(".article-edit-text").on 'keyup', (e) ->
+    e.preventDefault()
+    markdownPreview()

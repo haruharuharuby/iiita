@@ -8,7 +8,7 @@
 %body
 
 %header
-  = content_for :user
+  = render "common_header" if current_user
 
 %section
   = yield

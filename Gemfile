@@ -27,8 +27,11 @@ gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'devise-bootstrap-views'
+gem 'bootstrap-tagsinput-rails'
 gem 'devise-i18n'
 gem 'gravtastic'
+gem 'kaminari'
+gem 'redcarpet'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -42,6 +45,7 @@ gem 'gravtastic'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'rspec-rails', '~> 3.0'
 end
 
 group :development do

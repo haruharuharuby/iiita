@@ -13,5 +13,10 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
+//= require bootstrap-tagsinput
+//= require highlight.pack
+//= require marked
 //= require turbolinks
 //= require_tree .
+
+hljs.initHighlightingOnLoad();
