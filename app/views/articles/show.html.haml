@@ -1,11 +1,40 @@
 = render "application/alert"
 
+.container-fluid
+  .row.article-header-container
+    .col-xs-12.col-sm-7.col-sm-offset-1
+      %h1= @article.title
+      %ul.list-inline
+        = content_tag_for :li, @article.tags do |tag|
+          %small
+            .associated-tag
+              = link_to "#(not implement)" do
+                %span.glyphicon.glyphicon-tags #{tag.name}|#{tag.articles_count}
+      %p
+        = link_to "投稿を編集", edit_article_path(@article), class:"btn btn-default" if @article.user == current_user
+        %small
+        = link_to image_tag(@article.user.gravatar_url, size: "32x32"), "#(not implement)"
+        #{@article.user.name} が #{@article.created_at.strftime("%Y/%m/%d")} に投稿 * 編集リクエストを作成する * 問題がある投稿を報告する
+    .col-xs-12.col-sm-3
+      .row
+        .col-xs-6.text-center.stock.stock-comment-border
+          .glyphicon.glyphicon-briefcase
+            %span.stock-counter 0
+          .stock-caption
+            ストック
+        .col-xs-6.text-center.comment
+          .glyphicon.glyphicon-comment
+            %span.comment-counter 0
+          .comment-caption
+            コメント
+      = form_for @article, class: "article-stock-form" do |f|
+        = f.button "ストック(not implement)", class:"btn btn-default btn-block" do
+          %span.glyphicon.glyphicon-briefcase ストック
+
 .container
-  .col-xs-12
-    .panel.panel-default
-      .panel-heading
-        プレビュー
-      .panel-body.article-preview-panel
+  .row
+    .col-xs-12
+      .article-preview-panel
         = @article.body
 
 = link_to 'Edit', edit_article_path(@article)

@@ -1,7 +1,8 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_article, only: [:edit, :update, :destroy]
-  before_action :set_article_view, only: [:show, :markdown]
+  before_action :set_article_view, only: [:show]
+
   def index
     @articles = Article.page(params[:page])
   end
@@ -21,7 +22,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to @article, notice: 'Article was successfully created.' }
+        format.html { redirect_to @article, notice: '記事を投稿しました。' }
         format.json { render :show, status: :created, location: @article }
       else
         format.html { render :new }
@@ -33,7 +34,7 @@ class ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @article.update(article_params)
-        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+        format.html { redirect_to @article, notice: '更新しました。' }
         format.json { render :show, status: :ok, location: @article }
       else
         format.html { render :edit }
@@ -45,7 +46,7 @@ class ArticlesController < ApplicationController
   def destroy
     @article.destroy
     respond_to do |format|
-      format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
+      format.html { redirect_to articles_url, notice: '削除しました。' }
       format.json { head :no_content }
     end
   end

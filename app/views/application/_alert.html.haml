@@ -1,15 +1,10 @@
 .msg
-  - if flash.any?
-    .alert.alert-danger
-      - flash.each do |name, msg|
-        %h3= msg
-  -# - if flash[:alert]
-  -#   - flash[:alert] do |name, msg|
-  -#     .alert.alert-danger.fade.in
-  -#       %a.close{ data:{ dismiss:"alert"} } x
-  -#       =
-  -# - if flash[:notice]
-  -#   - flash[:notice] do |name, msg|
-  -#     .alert.alert-success.fade.in
-  -#       %a.close{ data:{ dismiss:"alert"} } x
-  -#       = msg
+  - if notice
+    = content_tag :div, class:"alert alert-success" do
+      = link_to "x", "#", class:"close", data:{ dismiss:"alert" }
+      = notice
+
+  - if alert
+    = content_tag :div, class:"alert alert-danger" do
+      = link_to "x", "#", class:"close", data:{ dismiss:"alert" }
+      = alert

@@ -39,3 +39,7 @@ $key-border-color: #7fDF00;
 .btn-primary {
   @include sight-color;
 }
+
+.glyphicon:before{
+  margin-right: 5px;
+}
