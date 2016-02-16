@@ -19,7 +19,7 @@
       .row
         .col-xs-6.text-center.stock.stock-comment-border
           .glyphicon.glyphicon-briefcase
-            %span.stock-counter 0
+            %span.stock-counter #{@article.stocks.count}
           .stock-caption
             ストック
         .col-xs-6.text-center.comment
@@ -27,9 +27,15 @@
             %span.comment-counter 0
           .comment-caption
             コメント
-      = form_for @article, class: "article-stock-form" do |f|
-        = f.button "ストック(not implement)", class:"btn btn-default btn-block" do
-          %span.glyphicon.glyphicon-briefcase ストック
+      - stock = current_user.stocks.find_by(article: @article)
+      - if stock
+        = button_to stock_path(stock), method: :delete, class: "cancel-stocking btn btn-default btn-block" do
+          %span.glyphicon.glyphicon-briefcase ストックを解除する
+      - else
+        = form_for :stock, url: stocks_path, class: "article-stock-form" do |f|
+          = f.hidden_field :article_id, value: @article.id
+          = f.button "#ストック", class:"stock-article btn btn-default btn-block" do
+            %span.glyphicon.glyphicon-briefcase ストック
 
 .container
   .row
@@ -37,5 +43,5 @@
       .article-preview-panel
         = @article.body
 
-= link_to 'Edit', edit_article_path(@article)
+= link_to 'Edit', edit_article_path(@article) if current_user === @article.user
 = link_to 'Back', articles_path

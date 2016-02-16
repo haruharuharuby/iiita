@@ -2,6 +2,8 @@ class Article < ActiveRecord::Base
   belongs_to :user
   has_many :article_tag_relations
   has_many :tags, through: :article_tag_relations
+  has_many :stocks
+  has_many :stocked_users, through: :stocks
 
   enum publication: { draft: 0, opened: 1 }
 
