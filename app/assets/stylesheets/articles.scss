@@ -116,29 +116,26 @@ $base-border-color: #A4A4A4;
   }
 }
 
-.associated-tag{
-  position: relative;
-  background-color: #FAFAFA;
-  border-radius: 2px;
-  padding: 0px 2px 0px 2px;
-  a{
-    color: #6E6E6E;
-  }
-}
-
-.associated-tag:before{
-  content: "";
-  position: absolute;
-  // top: -1px;
-  left: -8px;
-  width: 0;
-  height: 0;
-  border-right: 8px solid #FAFAFA;
-  border-bottom: 8px solid transparent;
-  border-top: 8px solid transparent;
-}
-
 .cancel-stocking{
   background-color: #FA5858;
   color: black;
+}
+
+.form-control{
+  margin-bottom: 10px;
+}
+
+//
+// for _list.html.haml
+//
+.single-article{
+  padding-top: 10px;
+  border-bottom: 1px solid #BDBDBD;
+  .user-image{
+    margin-right: 10px;
+    width: 32px;
+  }
+  .article-title{
+    margin-left: 42px;
+  }
 }

@@ -1,0 +1,16 @@
+.user-summary.text-center
+  .col-xs-4
+    = link_to user, class:"btn btn-block" do
+      %span
+        %h2=user.contribution
+        Contribution
+  .col-xs-4
+    = link_to followed_users_user_path(user) do
+      %span
+        %h2=user.followed.count
+        Followers
+  .col-xs-4
+    = link_to "#(not implement)" do
+      %span
+        %h2=user.articles.count
+        Items

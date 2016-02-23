@@ -7,8 +7,14 @@ Rails.application.routes.draw do
 
   devise_for :user, :controllers => { registrations: "users/registrations", sessions: "users/sessions", passwords: "users/passwords" }
 
-  resources :users, only: [:index, :show]
+  resources :users, only: [:index, :show] do
+    member do
+      get "following_tags"
+      get "following_users"
+      get "followed_users"
+    end
+  end
   resources :articles
   resources :stocks
-
+  resources :user_follows
 end

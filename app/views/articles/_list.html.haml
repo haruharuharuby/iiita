@@ -1,0 +1,9 @@
+= div_for articles, class: "single-article" do |article|
+  .date
+    %small #{ article.user.name } が #{ article.created_at.strftime("%Y/%m/%D") }　に投稿
+  .user-image.pull-left
+    = link_to (image_tag article.user.gravatar_url, size:"32x32"), article.user, class:"image-in-article"
+  .article-title
+    %h4= link_to article.title, article
+  .tags
+    = render partial:"tags/list", locals:{ tags: article.tags, count_on: false }

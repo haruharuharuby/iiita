@@ -19,4 +19,15 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   validates :name, uniqueness: true, presence: true, length: { minimum: 8,　maximum: 32 }
 
+  def contribution
+    self.followed.count + self.articles.count
+  end
+
+  def find_stock(article)
+    self.stocks.find_by(article: article)
+  end
+
+  def find_follow_to(user)
+    self.follow_to.find_by(to_user: user)
+  end
 end

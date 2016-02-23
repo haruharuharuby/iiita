@@ -42,4 +42,30 @@ $key-border-color: #7fDF00;
 
 .glyphicon:before{
   margin-right: 5px;
+  margin-top: 5px;
+}
+
+.associated-tag{
+  position: relative;
+  background-color: #BDBDBD;
+  border-radius: 2px;
+  padding: 0px 2px 0px 2px;
+  a{
+    color: #6E6E6E;
+  }
+  span{
+    padding-top: 2px;
+  }
+}
+
+.associated-tag:before{
+  content: "";
+  position: absolute;
+  // top: -1px;
+  left: -9px;
+  width: 0;
+  height: 0;
+  border-right: 9px solid #BDBDBD;
+  border-bottom: 9px solid transparent;
+  border-top: 9px solid transparent;
 }

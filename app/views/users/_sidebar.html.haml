@@ -1,0 +1,18 @@
+.sidebar
+  .avatar-image
+    = image_tag user.gravatar_url
+  .user-name
+    %h4= user.name
+  .follow-button
+    = render partial:"user_follows/button", locals:{ user: user }
+
+  .follwed-tags
+    %h4= link_to "フォロー中のタグ#{user.tags.count}", following_tags_user_path(user)
+    %small
+      = render partial:"tags/list", locals:{ tags: user.tags, count_on: false }
+  .followed-users
+    %h4= link_to "フォロー中のユーザー#{user.following.count}", following_users_user_path(user)
+    %small
+      %ul.list-inline
+        = content_tag_for :li, user.following do |followed_user|
+          = image_tag followed_user.gravatar_url, size:"16x16"

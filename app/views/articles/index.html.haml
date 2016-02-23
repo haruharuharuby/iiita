@@ -7,22 +7,19 @@
       %nav.feed-container
         %ul.nav.nav-tabs
           %li.active
-            %a フィード
+            = link_to "フィード", "#", data:{toggle:"tab"}
           %li
-            %a 全ての投稿
+            = link_to "全ての投稿", "#", data:{toggle:"tab"}
           %li.pull-right
-            %a ストック
+            = link_to "ストック", "#", data:{toggle: "tab"}
           %li.pull-right
-            = link_to "#" do
+            = link_to "#", data:{toggle: "tab"} do
               自分の投稿
               %span.my-post-count 0
       .content-body
         = page_entries_info @articles
-
         - if @articles.any?
-          %ul.nav.nav-stacked
-            = content_tag_for :li, @articles do |article|
-              %h3= link_to article.title, article
+          = render partial: "list", locals: { articles: @articles }
         -else
           %h4 投稿はありません。
         = paginate @articles

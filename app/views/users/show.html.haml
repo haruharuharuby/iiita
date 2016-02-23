@@ -1,0 +1,30 @@
+= render "application/alert"
+
+.container-fluid
+  .row
+    .col-sm-3.col-md-2.user-side-bar
+      = render partial:"sidebar", locals:{ user: @user }
+    .col-sm-9.col-md-10.main
+      .row
+        = render partial:"stats", locals:{ user: @user }
+      .row
+        %ul.nav.nav-tabs
+          %li.active
+            = link_to "最近の投稿", "#recently", data:{toggle: "tab"}, "aria-controls":"recently"
+          %li
+            = link_to "ストックした投稿", "#stocked_articles", data:{toggle: "tab"}, "aria-controls":"stocked_articles"
+          - if @user === current_user
+            %li
+              = link_to "限定共有投稿", "#ristricted_posts", data:{toggle: "tab"}, "aria-controls":"ristricted_posts"
+          %li
+            = link_to "コメント", "#comments", data:{toggle: "tab"}, "aria-controls":"comments"
+
+        .tab-content
+          .tab-pane.active#recently
+            = render partial: "articles/list", locals: { articles: @user.articles }
+          .tab-pane#stocked_articles
+            = render partial: "articles/list", locals: { articles: @user.stocked_articles }
+          .tab-pane#ristricted_posts
+            ristricted_posts
+          .tab-pane#comments
+            comments

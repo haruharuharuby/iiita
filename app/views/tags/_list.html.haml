@@ -1,0 +1,7 @@
+%ul.list-inline
+  = content_tag_for :li, tags do |tag|
+    %small
+      .associated-tag
+        = link_to "#(not implement)" do
+          %span.glyphicon.glyphicon-tags #{ tag.name }
+          = "|#{tag.articles_count}" if count_on

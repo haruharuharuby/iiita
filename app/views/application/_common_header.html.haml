@@ -35,6 +35,7 @@
         .avatar-surface
           = link_to_if user_signed_in?, image_tag(current_user.gravatar_url, size:"34x34"), "#", class:"dropdown", data:{toggle:"dropdown"}
           %ul.dropdown-menu.user-menu-dropdown
-            %li not implement
+            %li
+              = link_to "マイページ", user_path(current_user)
             %li
               = link_to "ログアウト", destroy_user_session_path, method: :delete
