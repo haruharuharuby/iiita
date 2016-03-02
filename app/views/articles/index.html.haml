@@ -7,13 +7,13 @@
       %nav.feed-container
         %ul.nav.nav-tabs
           %li.active
-            = link_to "フィード", "#", data:{toggle:"tab"}
+            = link_to "フィード", "", anchor:"#", data:{toggle:"tab"}
           %li
-            = link_to "全ての投稿", "#", data:{toggle:"tab"}
+            = link_to "すべての投稿", "", anchor:"#", data:{toggle:"tab"}
           %li.pull-right
-            = link_to "ストック", "#", data:{toggle: "tab"}
+            = link_to "ストック", "", anchor:"#", data:{toggle:"tab"}
           %li.pull-right
-            = link_to "#", data:{toggle: "tab"} do
+            = link_to "", anchor:"#", data:{toggle:"tab"} do
               自分の投稿
               %span.my-post-count 0
       .content-body

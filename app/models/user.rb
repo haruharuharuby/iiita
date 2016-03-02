@@ -30,4 +30,8 @@ class User < ActiveRecord::Base
   def find_follow_to(user)
     self.follow_to.find_by(to_user: user)
   end
+
+  def tag_following?(tag)
+    self.tag_follows.find_or_initialize_by(tag: tag)
+  end
 end

@@ -1,0 +1,29 @@
+.container
+  .row
+    .col-sm-7.col-xs-12
+      .tag-header
+        %ul.list-inline
+          %li
+            = link_to "","#"
+          %li
+            %h3 #{@tag.name}
+          %li.follow-button
+            = render partial: "tag_follows/button", locals: { tag: @tag }
+
+      .tag-follow-summary
+        %ul.list-inline.pull-left.text-center
+          %li.articles
+            %h4= @tag.articles.count
+            %small
+              投稿
+          %li.followers
+            %h4= @tag.followers.count
+            %small
+              フォロワー
+        %p
+          #{@tag.name}に関する情報が集まっています。現在#{@tag.articles.count}件の投稿があります。また#{@tag.followers.count}人のユーザーが#{@tag.name}タグをフォローしています。
+
+      .recently-stocked-posts
+        %h3 最近ストックされた投稿
+        = render partial: "articles/list", locals:{ articles: TagStock.new(@tag).recent_stocked_articles }
+    .col-sm-5.col-xs-12

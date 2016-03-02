@@ -46,8 +46,11 @@ $key-border-color: #7fDF00;
 }
 
 .associated-tag{
+  .glyphicon:before{
+    color: #84B789;
+  }
   position: relative;
-  background-color: #BDBDBD;
+  background-color: #CBD2CC;
   border-radius: 2px;
   padding: 0px 2px 0px 2px;
   a{
@@ -65,7 +68,7 @@ $key-border-color: #7fDF00;
   left: -9px;
   width: 0;
   height: 0;
-  border-right: 9px solid #BDBDBD;
+  border-right: 9px solid #CBD2CC;
   border-bottom: 9px solid transparent;
   border-top: 9px solid transparent;
 }

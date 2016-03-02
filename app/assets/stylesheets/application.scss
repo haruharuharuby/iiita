@@ -11,10 +11,12 @@
  * file per style scope.
  *
  */
+@import url(https://fonts.googleapis.com/css?family=Raleway);
 @import "bootstrap-sprockets";
 @import "bootstrap";
+// CSSが適用されない。highlights_default.css -> highlights_defaultに変更すると治った。
+// highlightが見つからなかったのか。。。
 @import "bootstrap-tagsinput.scss";
-@import "highlights_default.css";
+@import "highlights_default";
 @import "base";
-@import "*";
-@import url(https://fonts.googleapis.com/css?family=Raleway);
+@import "*"

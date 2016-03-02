@@ -19,9 +19,8 @@ class ArticlesController < ApplicationController
 
   def create
     @article = current_user.articles.build(article_params)
-
     respond_to do |format|
-      if @article.save
+      if ArticleTagging.new(@article).register
         format.html { redirect_to @article, notice: '記事を投稿しました。' }
         format.json { render :show, status: :created, location: @article }
       else
@@ -32,8 +31,9 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    @article = current_user.articles.build(article_params)
     respond_to do |format|
-      if @article.update(article_params)
+      if ArticleTagging.new(@article).register
         format.html { redirect_to @article, notice: '更新しました。' }
         format.json { render :show, status: :ok, location: @article }
       else

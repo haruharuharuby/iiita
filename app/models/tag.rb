@@ -6,11 +6,5 @@ class Tag < ActiveRecord::Base
 
   validates :name, uniqueness: true, length: { maximum: 16 }
 
-  def self.parse(tag_list=",")
-    tag_array = []
-    tag_list.split(",").each do |tag_name|
-      tag_array << { name: tag_name }
-    end
-    tag_array
-  end
+  
 end

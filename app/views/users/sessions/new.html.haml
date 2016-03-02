@@ -14,7 +14,7 @@
           .msg
             - flash.each do |name, msg|
               .alert.alert-danger
-                %a.close{ data:{ dismiss:"alert"} } x
+                =link_to "x","#", class:"close", data:{ dismiss:"alert"} 
                 = msg
           .authentication-form
             = render "manual_login_form"

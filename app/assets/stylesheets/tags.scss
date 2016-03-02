@@ -1,0 +1,29 @@
+// Place all the styles related to the tags controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.tag-header{
+  .image-link{
+    width: 50px;
+    padding-right: 20px;
+  }
+
+  .tag-name{
+    padding-right: 30px;
+  }
+}
+
+.tag-follow-summary{
+  border-top: 1px solid #BDBDBD;
+  border-bottom: 1px solid #BDBDBD;
+  height: 80px;
+  .articles{
+    border-right: 1px dotted #BDBDBD;
+  }
+  p{
+    margin-top: 5px;
+  }
+}
+
+ul.tag-list{
+  margin-left: 10px;
+}

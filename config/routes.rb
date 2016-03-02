@@ -14,7 +14,10 @@ Rails.application.routes.draw do
       get "followed_users"
     end
   end
+
   resources :articles
   resources :stocks
   resources :user_follows
+  resources :tags
+  resources :tag_follows, only:[:create, :destroy]
 end

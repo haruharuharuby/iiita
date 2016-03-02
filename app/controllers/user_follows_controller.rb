@@ -1,7 +1,6 @@
 class UserFollowsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user_follow_to, only:[:destroy]
-  before_action :user_follow_param, only:[:create]
 
   def create
     @follow = current_user.follow_to.build(user_follow_param)
@@ -18,7 +17,6 @@ class UserFollowsController < ApplicationController
     respond_to do |format|
       if @follow.destroy
         format.js{}
-        format.json { render json: @follow, status: :ok }
       else
         format.json { render @follow.errors, status: :unprocessable_entity }
       end
