@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   devise_for :user, :controllers => { registrations: "users/registrations", sessions: "users/sessions", passwords: "users/passwords" }
 
-  resources :users, only: [:index, :show] do
+  resources :users, param: :name, conserns: :followable, only: [:index, :show] do
     member do
       get "following_tags"
       get "following_users"
@@ -15,9 +15,14 @@ Rails.application.routes.draw do
     end
   end
 
+  concern :followable do
+    post "follow", on: :member
+    post "unfollow", on: :member
+  end
+
   resources :articles
   resources :stocks
-  resources :user_follows
-  resources :tags
+  resources :user_follows, only:[:create, :destroy]
+  resources :tags, param: :name, concerns: :followable
   resources :tag_follows, only:[:create, :destroy]
 end

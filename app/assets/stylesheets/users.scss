@@ -8,3 +8,15 @@
 .user-summary{
   margin-bottom: 20px;
 }
+
+.following-tags-user-header{
+  .user-header-text{
+    margin-left: 90px;
+    .contribution-count{
+      font-size: 200%;
+    }
+    .contribution-count-caption{
+      font-size: 150%;
+    }
+  }
+}

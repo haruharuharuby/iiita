@@ -1,0 +1,6 @@
+%ul.nav
+  = content_tag_for :li, tags do |tag|
+    .tag-name.pull-left
+      = tag.name
+    .follow-button{id: "tag_follow_#{tag.id}"}
+      = render partial: "follow_button", locals: {tag: tag}

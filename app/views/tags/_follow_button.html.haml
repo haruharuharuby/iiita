@@ -1,0 +1,6 @@
+.follow-button{data:{visible:"#{tag.follow?(current_user)}"}}
+  = button_to unfollow_tag_path(tag), remote: true, class: "btn btn-danger", data:{ visible: tag.follow?(current_user) } do
+    %span.glyphicon.glyphicon-briefcase フォローを解除する
+.follow-button{data:{visible:"#{!tag.follow?(current_user)}"}}
+  = button_to follow_tag_path(tag), remote: true, class: "btn btn-success", data:{ visible: !tag.follow?(current_user) } do
+    %span.glyphicon.glyphicon-briefcase フォローする

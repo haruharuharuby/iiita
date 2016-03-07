@@ -6,5 +6,11 @@ class Tag < ActiveRecord::Base
 
   validates :name, uniqueness: true, length: { maximum: 16 }
 
-  
+  def follow?(user)
+    self.tag_follows.exists? user: user
+  end
+
+  def to_param
+    name
+  end
 end

@@ -1,9 +1,0 @@
-- followed_tag = current_user.tag_follows.find_or_initialize_by(tag: tag)
-- unless followed_tag.new_record?
-  = button_to tag_follow_path(followed_tag), remote: true, method: :delete, class: "cancel-following btn btn-default btn-block" do
-    %span.glyphicon.glyphicon-briefcase フォローを解除する
-- else
-  = form_for :tag_follow, url: tag_follows_path, remote: true, class: "follow-form" do |f|
-    = f.hidden_field :tag_id, value: tag.id
-    = f.button "", class:"follow-tag btn btn-default btn-block" do
-      %span.glyphicon.glyphicon-briefcase フォローする
