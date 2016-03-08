@@ -24,6 +24,13 @@
   }
 }
 
-ul.tag-list{
-  margin-left: 10px;
+ul.following-list{
+  li{
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #BDBDBD;
+    .tag-follow-unfollow-button{
+      margin-left: 200px;
+    }
+  }
 }

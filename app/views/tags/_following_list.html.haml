@@ -1,6 +1,6 @@
-%ul.nav
+%ul.list-unstyled.following-list
   = content_tag_for :li, tags do |tag|
     .tag-name.pull-left
       = tag.name
-    .follow-button{id: "tag_follow_#{tag.id}"}
-      = render partial: "follow_button", locals: {tag: tag}
+    .tag-follow-unfollow-button{data:{tag:"#{tag.id}"}}
+      = render partial: "tags/follow_button", locals: {tag: tag}

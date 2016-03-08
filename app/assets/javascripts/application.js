@@ -16,5 +16,6 @@
 //= require bootstrap-tagsinput
 //= require highlight.pack
 //= require marked
+//= require base
 //= require turbolinks
 //= require_tree .
