@@ -1,9 +1,9 @@
 = div_for users, class: "single-user" do |user|
   .image-link.pull-left
-    = link_to image_tag(user.gravatar_url, size: "32x32"), user if item.presence?(gravatar_url)
+    = link_to image_tag(user.gravatar_url, size: "32x32"), user
   .name-link.pull-left
     = link_to user do
       %span
         %h4= #{user.name}
-  .follow
-    = button_to "フォロー", class:"btn btn-default"
+  .user-follow-unfollow-button{data:{user: "#{user.id}"}}
+    = render partial: "follow_button", locals: {user: user}

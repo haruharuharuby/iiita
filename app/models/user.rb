@@ -35,6 +35,10 @@ class User < ActiveRecord::Base
     self.tag_follows.find_or_initialize_by(tag: tag)
   end
 
+  def user_follow?(user)
+    self.follow_to.exists?(to_user_id: user)
+  end
+
   def to_param
     name
   end

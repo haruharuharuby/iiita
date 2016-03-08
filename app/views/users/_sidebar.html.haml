@@ -3,8 +3,9 @@
     = image_tag user.gravatar_url
   .user-name
     %h4= user.name
-  .follow-button
-    = render partial:"user_follows/button", locals:{ user: user }
+  = unless user == current_user
+    .user-follow-unfollow-button{data:{user: "#{user.id}"}}
+      = render partial:"follow_button", locals:{ user: user }
 
   .follwed-tags
     %h4= link_to "フォロー中のタグ#{user.tags.count}", following_tags_user_path(user)

@@ -5,10 +5,10 @@ class TagFollow < ActiveRecord::Base
   validates :tag_id, presence: true
   validates :user_id, presence: true
 
-  def self.update(user, tag_list)
-    tag_list.each do |tag|
-      tag_record = Tag.find(name: tag)
-      TagFollow.create!(user, tag_record)
-    end
-  end
+  # def self.update(user, tag_list)
+  #   tag_list.each do |tag|
+  #     tag_record = Tag.find(name: tag)
+  #     TagFollow.create!(user, tag_record)
+  #   end
+  # end
 end
