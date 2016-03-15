@@ -3,8 +3,9 @@
     = image_tag user.gravatar_url
   .user-name
     %h4= user.name
-  = unless user == current_user
-    .user-follow-unfollow-button{data:{user: "#{user.id}"}}
+
+  - unless user == current_user
+    .follow-unfollow-button{data:{objectid: "#{user.id}"}}
       = render partial:"follow_button", locals:{ user: user }
 
   .follwed-tags
@@ -16,4 +17,4 @@
     %small
       %ul.list-inline
         = content_tag_for :li, user.following do |followed_user|
-          = image_tag followed_user.gravatar_url, size:"16x16"
+          = link_to (image_tag followed_user.gravatar_url, size:"16x16"), followed_user

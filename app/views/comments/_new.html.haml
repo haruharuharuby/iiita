@@ -1,0 +1,5 @@
+= link_to (image_tag current_user.gravatar_url, size: "38x38"), current_user
+%strong コメントを投稿する
+= render partial:'comments/form', locals:{comment: comment}
+
+-# = link_to 'Back', user_comments_path(current_user)

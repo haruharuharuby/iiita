@@ -1,6 +1,6 @@
-followButtons = $(".user-follow-unfollow-button")
+followButtons = $(".follow-unfollow-button")
 for b in followButtons
-  if b.dataset.user == "<%= @user.id.to_s %>"
+  if b.dataset.objectid == "<%= @user.id.to_s %>"
     $(b).html("<%= j(render partial: "follow_button", locals: { user: @user }) %>")
     button = $(".follow-button")
     for e in button

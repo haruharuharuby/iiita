@@ -1,0 +1,17 @@
+.container
+  .row
+    .following-users-user-header.clearfix
+      .user-header-image.pull-left
+        = link_to (image_tag @user.gravatar_url, size: "80x80"), @user
+      .user-header-text
+        %h4 #{@user.name}
+        %p
+          %span.contribution-count #{@user.contribution}
+          %span.contribution-count-caption Contribution
+
+.well
+  .container
+    = (link_to @user.name, @user) + " / フォロー中のユーザー"
+
+.container
+  = render partial: "users/following_list", locals:{users: @user.following, followable: @user == current_user }

@@ -1,0 +1,16 @@
+.comments-container
+  = div_for comments, class: "single-comment" do |comment|
+    .single-comment-user.clearfix
+      .commenting-user.pull-left
+        = link_to (image_tag comment.user.gravatar_url, size:"38x38"), comment.user
+      .single-comment-commented-user
+        .single-comment-description
+          .commented-user.pull-left
+            = link_to (image_tag comment.article.user.gravatar_url, size:"24x24"), comment.article.user, class: "commented-user"
+            の投稿
+          #{ link_to comment.article.title, comment.article } にコメント
+          #{ comment.created_at.strftime("%Y/%m/%d %H:%M") }
+        .single-comment-body
+          = comment.body
+
+-# = link_to 'New Comment', new_user_comment_path(current_user)

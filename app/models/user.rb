@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :stocked_articles, -> { Article.opened }, through: :stocks, source: :article
   has_many :tag_follows
   has_many :tags, through: :tag_follows
+  has_many :comments
 
   has_many :follow_to, class_name: "UserFollow", foreign_key:"from_user_id"
   has_many :following, through: :follow_to, source: :to_user

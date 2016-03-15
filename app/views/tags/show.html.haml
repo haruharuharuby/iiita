@@ -7,7 +7,7 @@
             = link_to "","#"
           %li
             %h3 #{@tag.name}
-          %li.tag-follow-unfollow-button{data:{tag:"#{@tag.id}"}}
+          %li
             = render partial: "follow_button", locals: { tag: @tag }
 
       .tag-follow-summary

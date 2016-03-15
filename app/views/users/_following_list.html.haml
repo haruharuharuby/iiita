@@ -1,0 +1,13 @@
+%ul.list-unstyled.following-list
+  = content_tag_for :li, users do |user|
+    .following-container.clearfix
+      .image.pull-left
+        = link_to (image_tag user.gravatar_url, size: "38x38", alt:user.name), user
+      .text.pull-left
+        .name
+          = user.name
+        .description
+          = "testtest"
+      - if followable
+        .follow-unfollow-button{data:{objectid: "#{user.id}"}}
+          = render partial: "users/follow_button", locals: {user: user}

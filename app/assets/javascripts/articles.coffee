@@ -1,8 +1,7 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
-
-ready = ->
+$ ->
   markdownPreview = ->
     preview = $(".article-preview-panel")
     if preview
@@ -24,8 +23,5 @@ ready = ->
   $(".article-edit-text").on 'keyup', (e) ->
     e.preventDefault()
     markdownPreview()
-
-$(document).ready(ready)
-
 
 hljs.initHighlightingOnLoad();

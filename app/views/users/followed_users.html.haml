@@ -8,4 +8,4 @@
       .row
         = render partial:"stats", locals: { user: @user }
       .row
-        = render partial:"list", locals:{ users: current_user.followed }
+        = render partial:"following_list", locals:{ users: @user.followed, followable: @user == current_user }

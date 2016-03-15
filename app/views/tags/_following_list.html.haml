@@ -2,5 +2,5 @@
   = content_tag_for :li, tags do |tag|
     .tag-name.pull-left
       = tag.name
-    .tag-follow-unfollow-button{data:{tag:"#{tag.id}"}}
+    .follow-unfollow-button{data:{objectId:"#{tag.id}"}}
       = render partial: "tags/follow_button", locals: {tag: tag}

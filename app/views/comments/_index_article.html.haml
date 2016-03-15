@@ -1,0 +1,15 @@
+.comments-container
+  = div_for comments, class: "single-comment" do |comment|
+    .single-comment-user.clearfix
+      = link_to (image_tag comment.user.gravatar_url, size:"38x38"), comment.user, class: "pull-left"
+      .single-comment-user-contribution.pull-left
+        .user
+          = link_to comment.user.name, comment.user
+        .contribution
+          #{comment.user.contribution} Contribution
+      .text-right
+        = comment.created_at.strftime("%Y/%m/%d %H:%M")
+    .single-comment-body
+      = comment.body
+
+-# = link_to 'New Comment', new_user_comment_path(current_user)

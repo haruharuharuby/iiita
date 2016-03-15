@@ -31,9 +31,8 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    @article = current_user.articles.build(article_params)
     respond_to do |format|
-      if ArticleTagging.new(@article).register
+      if ArticleTagging.new(@article).update(article_params)
         format.html { redirect_to @article, notice: '更新しました。' }
         format.json { render :show, status: :ok, location: @article }
       else

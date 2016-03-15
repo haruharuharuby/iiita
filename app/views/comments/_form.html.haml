@@ -1,0 +1,21 @@
+= form_for [current_user, comment] do |f|
+  .field
+    -# = f.label :user_id
+    = f.hidden_field :user_id
+  .field
+    -# = f.label :article_id
+    = f.hidden_field :article_id
+  %ul.nav.nav-tabs.comment-edit-button-set
+    %li.active
+      = link_to "編集", "#comment-edit", data:{toggle: "tab"}, "aria-controls":"comment-edit"
+    %li
+      = link_to "プレビュー", "#comment-preview", data:{toggle: "tab"}, "aria-controls":"comment-preview", class:"comment-preview-button"
+  .field.tab-content
+    .tab-pane.active#comment-edit
+      = f.text_area :body, placeholder:"Markdownで入力", class:"form-control", id:"comment-edit-text", rows:5
+    .tab-pane#comment-preview
+      .panel.panel-default
+        .panel-body.comment-preview-panel
+
+  .actions
+    = f.submit '投稿する', class: "btn btn-success"

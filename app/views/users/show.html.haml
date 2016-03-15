@@ -27,4 +27,4 @@
           .tab-pane#ristricted_posts
             ristricted_posts
           .tab-pane#comments
-            comments
+            = render partial: "comments/index_user", locals:{comments: @user.comments}

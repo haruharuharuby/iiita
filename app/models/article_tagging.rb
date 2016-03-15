@@ -6,6 +6,19 @@ class ArticleTagging
   def register
     ActiveRecord::Base.transaction do
       @article.save
+      update_tags
+    end
+  end
+
+  def update(article_params)
+    ActiveRecord::Base.transaction do
+      @article.update(article_params)
+      update_tags
+    end
+  end
+
+  private
+    def update_tags
       new_tag_names = @article.tag_list.split(",")
       @article.tags.each do |tag|
         rel = @article.article_tag_relations.find_by(tag: tag) unless new_tag_names.include?(tag.name)
@@ -17,5 +30,4 @@ class ArticleTagging
         @article.article_tag_relations.find_or_create_by(tag: tag)
       end
     end
-  end
 end

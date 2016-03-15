@@ -1,0 +1,64 @@
+// Place all the styles related to the comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.single-comment-user-contribution{
+  padding: 0;
+  margin-left: 5px;
+}
+
+.single-comment-body:before{
+  content: "";
+  position: absolute;
+  top: -19px;
+  left: 15px;
+  width: 0;
+  height: 0;
+  border-right: 9px solid transparent;
+  border-bottom: 9px solid #BDBDBD;
+  border-top: 9px solid transparent;
+  border-left: 9px solid transparent;
+  z-index: 5;
+}
+.single-comment-body:after{
+  content: "";
+  position: absolute;
+  top: -16px;
+  left: 16px;
+  width: 0;
+  height: 0;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #ffffff;
+  border-top: 8px solid transparent;
+  border-left: 8px solid transparent;
+  z-index: 9;
+}
+
+.single-comment-body{
+  position: relative;
+  margin-top: 15px;
+  padding: 10px;
+  border: 1px solid #BDBDBD;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.new-comment{
+  margin-top: 25px;
+}
+
+form.new_comment{
+  margin-top: 10px;
+}
+.single-comment-user{
+  margin-top: 10px;
+  .commented-user img{
+    border-radius: 5px;
+  }
+  .single-comment-commented-user{
+    margin-left: 45px;
+  }
+}
+
+.comment-edit-button-set{
+  margin-bottom: 5px;
+}

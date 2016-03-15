@@ -1,9 +1,9 @@
 = div_for users, class: "single-user" do |user|
   .image-link.pull-left
     = link_to image_tag(user.gravatar_url, size: "32x32"), user
-  .name-link.pull-left
+  .name-link
     = link_to user do
       %span
         %h4= #{user.name}
-  .user-follow-unfollow-button{data:{user: "#{user.id}"}}
-    = render partial: "follow_button", locals: {user: user}
+    .follow-unfollow-button{data:{objectid: "#{user.id}"}}
+      = render partial: "follow_button", locals: {user: user} if user == current_user

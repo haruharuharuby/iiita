@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160129043758) do
+ActiveRecord::Schema.define(version: 20160310004925) do
 
   create_table "article_tag_relations", force: :cascade do |t|
     t.integer  "article_id", limit: 4
@@ -31,6 +31,14 @@ ActiveRecord::Schema.define(version: 20160129043758) do
   end
 
   add_index "articles", ["title"], name: "index_articles_on_title", unique: true, using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "article_id", limit: 4
+    t.string   "body",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "stocks", force: :cascade do |t|
     t.integer  "user_id",    limit: 4

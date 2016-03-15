@@ -37,6 +37,12 @@
     .col-xs-12
       .article-preview-panel
         = @article.body
+  .row
+    .col-xs-12
+      .comment
+        = render partial:"comments/index_article", locals:{comments: @article.comments}
+      .new-comment
+        = render partial:"comments/new", locals:{comment: @article.comments.build(user: current_user)}
 
-= link_to 'Edit', edit_article_path(@article) if current_user === @article.user
-= link_to 'Back', articles_path
+-# = link_to 'Edit', edit_article_path(@article) if current_user === @article.user
+-# = link_to 'Back', articles_path

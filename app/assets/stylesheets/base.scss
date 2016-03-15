@@ -72,3 +72,19 @@ $key-border-color: #7fDF00;
   border-bottom: 9px solid transparent;
   border-top: 9px solid transparent;
 }
+
+ul.following-list{
+  li{
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #BDBDBD;
+    .following-container{
+      .text{
+        margin-left: 10px;
+      }
+    }
+    .follow-unfollow-button{
+      margin-left: 200px;
+    }
+  }
+}

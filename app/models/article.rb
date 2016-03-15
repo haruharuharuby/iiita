@@ -4,6 +4,7 @@ class Article < ActiveRecord::Base
   has_many :tags, through: :article_tag_relations
   has_many :stocks
   has_many :stocked_users, through: :stocks
+  has_many :comments
 
   enum publication: { draft: 0, opened: 1 }
 

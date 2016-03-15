@@ -18,11 +18,10 @@ Rails.application.routes.draw do
       get "following_users"
       get "followed_users"
     end
+    resources :comments
   end
 
   resources :articles
   resources :stocks
-  resources :user_follows, only:[:create, :destroy]
   resources :tags, param: :name, concerns: :followable
-  resources :tag_follows, only:[:create, :destroy]
 end
