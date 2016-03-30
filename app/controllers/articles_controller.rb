@@ -50,6 +50,13 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def search
+    logger.debug("word")
+    logger.debug(params[:article][:word])
+    @word = params[:article][:word]
+    @articles = Article.search(params[:article][:word])
+  end
+
   private
     def set_article
       @article = current_user.articles.find(params[:id])

@@ -1,0 +1,24 @@
+= render "application/alert"
+
+.container-fluid
+  .row
+    .col-xs-12
+      .search-operation-container
+        = form_for(:article, url: { controller: "articles", action:"search" }, method: :get ) do |f|
+          .input-group.pull-left
+            = f.text_field :word, placeholder:"キーワードを入力", value: @word, class: "form-control"
+            .input-group-btn
+              = link_to "#", class:"btn btn-default" do
+                %span.caret
+          = f.submit "検索", class: "btn btn-success"
+
+  .row.search-result-container
+    .col-xs-12
+      %nav
+        %ul.nav.nav-tabs
+          %li.active
+            = link_to "すべて", "", anchor:"#", data:{toggle:"tab"}
+          %li
+            = link_to "ストック済み", "", anchor:"#", data:{toggle:"tab"}
+
+      = render partial: "list", locals: {articles: @articles}

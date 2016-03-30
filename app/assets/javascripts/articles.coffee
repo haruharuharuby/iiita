@@ -14,12 +14,12 @@ $ ->
 
   markdownPreview()
 
-  $(".article-search-text").on "focusin", (e) ->
-    e.preventDefault()
-    $(".article-search-button").animate(width: "show")
-  $(".article-search-dropdown").on "click", (e) ->
-    e.preventDefault()
-    $(".article-search-dropdown-items").toggle()
+  # $(".article-search-text").on "focusin", (e) ->
+  #   e.preventDefault()
+  #   $(".article-search-button").animate(width: "show")
+  # $(".article-search-dropdown").on "click", (e) ->
+  #   e.preventDefault()
+  #   $(".article-search-dropdown-items").toggle()
   $(".article-edit-text").on 'keyup', (e) ->
     e.preventDefault()
     markdownPreview()

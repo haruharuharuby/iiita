@@ -21,7 +21,12 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :articles
+  resources :articles do
+    collection do
+      get "search"
+    end
+  end
+
   resources :stocks
   resources :tags, param: :name, concerns: :followable
 end

@@ -12,8 +12,10 @@ class Article < ActiveRecord::Base
   validates :title, presence: true, length: { minimum: 10 }
   validates :body, presence: true, length: { minimum: 10 }
 
-  attr_accessor :word_of_seeking
+  attr_accessor :word
+
 
   scope :public_article, -> { where publication: :opened }
+  scope :search, -> (query = nil) { where "title like '%" + sanitize_sql_like(query) + "%' or body like '%" + sanitize_sql_like(query) + "%'" }
 
 end

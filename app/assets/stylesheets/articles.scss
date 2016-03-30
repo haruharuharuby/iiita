@@ -13,28 +13,41 @@ $base-border-color: #A4A4A4;
   font-family: 'Raleway', sans-serif;
   font-size: 225%;
 }
+.search-operation-container{
+  >form{
+    width: 70%;
+    .input-group{
+      width: 50%;
+      margin-right: 5px;
+    }
+    .btn-success{
+      width: 100px;
+    }
+  }
+  margin-bottom: 10px;
+}
 
-.article-search-dropdown-items
-{
-  display: none;
-  position: absolute;
-  width: 350px;
-  border: 1px solid $base-border-color;
-  padding: 10px;
-  z-index: 100;
-  background-color: white;
-  .search-user-text{
-    margin-bottom: 10px;
-  }
-  input{
-    border: 1px solid $base-border-color;
-    border-radius: 3px;
-    width: 100%;
-  }
-}
-.article-search-button{
-  display: none;
-}
+// .article-search-dropdown-items
+// {
+//   display: none;
+//   position: absolute;
+//   width: 350px;
+//   border: 1px solid $base-border-color;
+//   padding: 10px;
+//   z-index: 100;
+//   background-color: white;
+//   .search-user-text{
+//     margin-bottom: 10px;
+//   }
+//   input{
+//     border: 1px solid $base-border-color;
+//     border-radius: 3px;
+//     width: 100%;
+//   }
+// }
+// .article-search-button{
+//   display: none;
+// }
 
 .article-post-menu, .article-stocks, .notification, .avatar{
   margin-top: 8px;
