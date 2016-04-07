@@ -11,7 +11,7 @@
       .field
         = f.text_field :title, placeholder:"タイトル", class: "form-control"
       .field
-        = f.text_field :tag_list, placeholder:"タグ カンマで区切って入力", class: "form-control", data:{ role:"tagsinput" }
+        = f.text_field :tag_list, placeholder:"タグ カンマで区切って入力", class: "form-control input-tag-list", data:{ role:"tagsinput" }
       .field.row
         .col-xs-6
           = f.text_area :body, placeholder:"Markdownで入力", class:"form-control article-edit-text", rows:20

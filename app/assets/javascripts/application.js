@@ -14,8 +14,8 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require bootstrap-tagsinput
+//= require turbolinks
 //= require highlight.pack
 //= require marked
 //= require base
-//= require turbolinks
 //= require_tree .

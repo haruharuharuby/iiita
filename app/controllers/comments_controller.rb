@@ -31,7 +31,7 @@ class CommentsController < ApplicationController
         format.html { redirect_to :back, notice: 'コメントしました。' }
         format.json { render :show, status: :created, location: @comment }
       else
-        format.html { render :new }
+        format.html { redirect_to :back}
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end

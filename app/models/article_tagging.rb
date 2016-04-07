@@ -5,7 +5,7 @@ class ArticleTagging
 
   def register
     ActiveRecord::Base.transaction do
-      @article.save
+      @article.save!
       update_tags
     end
   end

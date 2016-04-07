@@ -1,7 +1,4 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
-$ ->
+ready = ->
   $(".comment-preview-button").on "click", (e)->
     e.preventDefault()
     text = $("textarea#comment-edit-text").val()
@@ -17,3 +14,5 @@ $ ->
     $(c).html(markedText)
     $(c).find("pre code").each (i, block) ->
       hljs.highlightBlock(block, block.className)
+
+$(document).on('turbolinks:load', ready)
